@@ -1,0 +1,178 @@
+#register {
+  width: 100%;
+  height: 100%;
+  background: url(../img/eczastok-logo-bg.png) center 40px;
+  background-repeat: no-repeat;
+  .progress {
+    background: #FF5C00;
+    height: 7px;
+  }
+  .header {
+    &__return-home {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      a {
+        font-weight: 550;
+        font-size: 16px;
+        line-height: 115%;
+        letter-spacing: 0.01em;
+        color: #000000;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+    &__logo {
+      text-align: center;
+    }
+  }
+  .register-form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    &__envelope {
+      width: fit-content;
+    }
+    &__mail-text {
+      font-weight: 500;
+      font-size: 48px;
+      line-height: 110%;
+      text-align: center;
+      letter-spacing: -0.01em;
+      font-feature-settings: 'liga' off;
+      color: #131419;
+    }
+    &__use-mail {
+      background: #382239;
+      border-radius: 14px;
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 115%;
+      text-align: center;
+      font-feature-settings: 'liga' off;
+      color: #FFFFFF;
+      height: 70px;
+    }
+    &__new-mail {
+      background: #F2EBF2;
+      border-radius: 14px;
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 115%;
+      text-align: center;
+      letter-spacing: -0.01em;
+      font-feature-settings: 'liga' off;
+      color: #382239;
+      height: 70px;
+    }
+    &__necessary {
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 115%;
+      text-align: center;
+      letter-spacing: -0.01em;
+      color: rgba(56, 34, 57, 0.4);
+    }
+    &__info {
+      background: rgba(255, 92, 0, 0.1);
+      border-radius: 14px;
+      font-weight: 475;
+      font-size: 12px;
+      line-height: 145%;
+      letter-spacing: -0.01em;
+      color: #FF5C00;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    &__desc {
+      font-weight: 475;
+      font-size: 20px;
+      line-height: 135%;
+      text-align: center;
+      color: #000000;
+    }
+    &__gln {
+      background: #FEF7F7;
+      border: 1px solid rgba(255, 0, 0, 0.15);
+      box-sizing: border-box;
+      border-radius: 14px;
+    }
+    &__contact {
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 110%;
+      letter-spacing: 0.01em;
+      font-feature-settings: 'liga' off;
+      color: #382239;
+      b {
+        text-decoration: underline;
+        color: #382239;
+      }
+    }
+    &__last-step {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    &__last-step-text {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 110%;
+      text-align: center;
+      letter-spacing: -0.01em;
+      font-feature-settings: 'liga' off;
+      color: #131419;
+    }
+    &__emoji {
+      font-weight: 500;
+      font-size: 36px;
+      line-height: 135%;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      color: #382239;
+    }
+    &__category-list {
+      height: 350px;
+      overflow-y: scroll;
+    }
+    &__category {
+      height: 70px;
+      background: #FFFFFF;
+      border: 1px solid rgba(56, 34, 57, 0.15);
+      box-sizing: border-box;
+      border-radius: 12px;
+      /* width */
+      ::-webkit-scrollbar {
+        width: 20px;
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey; 
+        border-radius: 10px;
+      }
+      
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: red; 
+        border-radius: 10px;
+      }
+
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: #b30000; 
+      }
+    }
+    &__category-text {
+      font-weight: normal;
+      font-size: 24px;
+      line-height: 29px;
+      letter-spacing: 0.02em;
+      color: #000000;
+    }
+  }
+}

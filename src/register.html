@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <title>Register</title>
+</head>
+<body>
+  <div id="register">
+    <div class="row">
+      <div class="col-5 progress"></div>
+    </div>
+    <div class="row mt-5">
+      <div class="header__return-home col-12 col-lg-3" @click="goHome()">
+        <img src="assets/svg/left-chevron.svg" @click="goHome()" class="ml-5" alt="">
+        <a v-if="step === 0 || step === 2 || step === 4" href="/" class="ml-2">Anasayfaya Dön</a>
+        <a v-else-if="step === 1" @click="goRegister()" href="javascript:void(0)" class="ml-2">Geri Dön</a>
+        <a v-else-if="step === 3" @click="goValidMail()" href="javascript:void(0)" class="ml-2">ÖNCEKİ</a>
+      </div>
+      <div class="header__logo col-12 col-lg-6 mt-5 mt-lg-0">
+        <img src="assets/img/eczastok-logo.png" alt="">
+      </div>
+      <div :class="{'header__return-home col-12 col-lg-3 justify-content-end pr-5': step === 3, 'd-none d-md-block': step !== 3}" class="col-md-3">
+        <a v-if="step === 3" @click="goLastStep()" href="javascript:void(0)" class="ml-2">SONRAKİ</a>
+        <img v-if="step === 3" src="assets/svg/right-chevron.svg" class="ml-2" alt="">
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+      <div v-if="step === 0" class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 register-form">
+        <img class="register-form__envelope mt-5" src="assets/img/envelope.png" alt="">
+        <span class="register-form__mail-text mt-4">
+          Mail Adresin
+        </span>
+        <input type="mail" class="form-control register-input mt-5" placeholder="Mail Adresiniz veya GLN Numaranız" v-model="email"
+          aria-label="Mail Adresiniz veya GLN Numaranız" aria-describedby="basic-addon2" @input="email = $event.target.value">
+        <button class="btn btn-block register-form__use-mail mt-5" @click="useMail()">
+          Bu e-mailimi kullanmak istiyorum
+        </button>
+        <button class="btn btn-block register-form__new-mail mt-4" @click="newMail()">
+          Yeni mail adresi belirle
+        </button>
+        <span class="register-form__necessary mt-4">
+          BU ADIM ZORUNLUDUR.
+        </span>
+        <span class="register-form__info mt-5 pr-4 pl-4">
+          <img src="assets/img/info.png" class="pr-3" alt="">
+          Sağlık Bakan’lığında yer alan mail adresinizi kullanmak istiyorsanız bu adımdan devam edebilirsiniz. Başka bir mail adresi için yeni mail adresi belirlemelisiniz.
+        </span>
+      </div>
+      <div v-else-if="step === 1" class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 register-form">
+        <img class="register-form__envelope mt-5" src="assets/img/envelope.png" alt="">
+        <span class="register-form__mail-text mt-4">
+          Mail adresi doğrula
+        </span>
+        <input type="mail" class="form-control register-input mt-5" placeholder="Mail Adresiniz veya GLN Numaranız" v-model="newEmail"
+          aria-label="Mail Adresiniz veya GLN Numaranız" aria-describedby="basic-addon2" @input="newEmail = $event.target.value">
+        <button class="btn btn-block register-form__use-mail mt-5" @click="useNewMail()">
+          Yeni e-mailimi kullanmak istiyorum
+        </button>
+        <span class="register-form__necessary mt-4">
+          BU ADIM ZORUNLUDUR.
+        </span>
+        <span class="register-form__info mt-5 pr-4 pl-4">
+          <img src="assets/img/info.png" class="pr-3" alt="">
+          Sağlık Bakan’lığında yer alan mail adresinizi kullanmak istiyorsanız bu adımdan devam edebilirsiniz. Başka bir mail adresi için yeni mail adresi belirlemelisiniz.
+        </span>
+      </div>
+      <div v-else-if="step === 2 || step === 4" class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 register-form">
+        <img class="register-form__envelope mt-10" src="assets/img/gln-logo.png" alt="">
+        <span v-if="step === 2" class="register-form__mail-text mt-3 red">
+          GLN Bulunamadı!
+        </span>
+        <span v-if="step === 2" class="register-form__desc mt-3">
+          GLN numaranızı kontrol ederek tekrar deneyebilirsiniz.
+        </span>
+        <div class="row w-100 mt-4">
+          <input type="mail" class="form-control col-10 register-input register-form__gln m-auto red" placeholder="GLN Numaranız"
+          aria-label="GLN Numaranız" aria-describedby="basic-addon2" v-model="gln" @input="gln = $event.target.value">
+        </div>
+        <button class="btn btn-block register-form__use-mail mt-5" @click="tryAgain()">
+          <span v-if="step === 2">
+            Tekrar Dene
+          </span>
+          <span v-if="step === 4">
+            Gönder
+          </span>
+        </button>
+        <span class="register-form__contact mt-10">
+          Bir sorun mu yaşıyorsunuz?
+          <a href="contact.html">
+            <b>İletişime geçin.</b>
+          </a>
+        </span>
+      </div>
+      <div v-else-if="step === 3" class="col-12 col-sm-10 col-md-10 col-lg-9 col-xl-8 register-form">
+        <div class="register-form__last-step mt-5">
+          <span class="register-form__emoji mr-2">
+            😊
+          </span>
+          <span class="register-form__last-step-text">
+            SON ADIM!
+          </span>
+        </div>
+        <span class="register-form__mail-text mt-2">
+          Hangi kategorilerle ilginiyorsunuz?
+        </span>
+        <div class="row w-100 mt-4 d-block text-center">
+          <div class="col-6 m-auto register-form__category-list">
+            <div v-for="(category, index) in categoryList" :key="index" @click="selectCategory(index)"
+              class="register-form__category d-flex align-items-center custom-control custom-checkbox custom-checkbox-black mt-3">
+              <input type="checkbox" class="custom-control-input custom-control-input-black" :id="'categoryCheck' + index">
+              <label class="custom-control-label ml-2">
+                <span class="ml-2 register-form__category-text">
+                  {{ category.name }}
+                </span>
+              </label>
+            </div>
+          </div>
+          <button class="btn btn-block col-6 register-form__use-mail mc-auto mt-5" @click="tryAgain()">
+            <span>
+              Devam Et
+            </span>
+          </button>
+          <br>
+          <span class="register-form__necessary col-6 mt-5">
+            ŞİFRENİZ MAİL ADRESİNİZE GÖNDERİLECEKTİR.
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+#about {
+  .about {
+    &__title {
+      font-weight: 500;
+      font-size: 48px;
+      line-height: 110%;
+      text-align: center;
+      letter-spacing: -0.01em;
+      font-feature-settings: 'liga' off;
+      color: #382239;
+    }
+    &__images {
+      display: flex;
+      box-orient: horizontal;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+    &__cell {
+      flex: 1 1 auto; 
+      img {
+        border-radius: 30px;
+        max-width: 100%;
+      }
+    }
+  }
+}

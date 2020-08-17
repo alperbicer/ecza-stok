@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <title>Login</title>
+</head>
+
+<body>
+  <div v-bind:class="{ lockScroll: showForgotPassword }" id="login">
+    <div class="row navbar">
+      <div class="col-6 pt-sm-3 pb-sm-3">
+        <img @click="goHome()" src="assets/img/eczastok-logo.png" alt="">
+      </div>
+      <div class="col-6">
+        <div class="row">
+          <div class="col-12 col-sm-6 col-md-8 col-lg-9">
+            <a href="register.html" class="button__register float-right w-100">
+              Üye Ol
+            </a>
+          </div>
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <a href="login.html" class="button__login float-right float-sm-none w-100">
+              Giriş Yap
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row content">
+      <div class="col-12 col-sm-6 left-side">
+        <div class="row text-center d-flex justify-content-end mr-0">
+          <div class="col-12 col-sm-12 col-md-11 col-lg-11 col-xl-10 mt-md-0 mt-6 left-side__title">
+            Giriş Yap
+          </div>
+          <div class="col-12 col-sm-12 col-md-11 col-lg-11 col-xl-10 mt-5 left-side__desc">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry lorem Ipsum.
+          </div>
+          <div class="col-12 col-sm-12 col-md-11 col-lg-11 col-xl-10 mt-5 left-side__mail">
+            <input type="text" class="form-control register-input" placeholder="Mail Adresiniz veya GLN Numaranız"
+              aria-label="Mail Adresiniz veya GLN Numaranız" aria-describedby="basic-addon2">
+          </div>
+          <div class="col-12 col-sm-12 col-md-11 col-lg-11 col-xl-10 mt-3 left-side__password">
+            <input type="text" class="form-control register-input" placeholder="Şifreniz" aria-label="Şifreniz"
+              aria-describedby="basic-addon2">
+          </div>
+          <div class="col-12 col-sm-12 col-md-11 col-lg-11 col-xl-10 mt-4 left-side__remember-forgot">
+            <div class="row">
+              <div class="col-6 left-side__remember form-check">
+                <input type="checkbox" class="form-check-input" id="remember-me">
+                <label class="form-check-label" for="remember-me">Beni hatırla</label>
+              </div>
+              <div @click="showForgotPassword = true" class="col-6 left-side__forgot">
+                Şifremi Unuttum
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-12 col-md-11 col-lg-11 col-xl-10 mt-5 left-side__login">
+            <button class="btn btn-block" @click="login()">
+              Giriş Yap
+            </button>
+          </div>
+          <div class="col-12 col-sm-12 col-md-11 col-lg-11 col-xl-10 mt-4 left-side__register">
+            Yoksa hesabınız yok mu?
+            <a href="/register.html">
+              Hemen üye olun!
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 right-side">
+        <div class="row">
+          <div class="col-11 p-0 m-0 right-side__wrapper p-3 pb-5 pt-5 mt-4">
+            <div class="login__swiper-container swiper-container pb-6" @slideChange="slideChange()">
+              <div class="swiper-wrapper" v-if="loginSlideList">
+                <div v-for="(loginSlide, index) in loginSlideList" :key="index" class="swiper-slide">
+                  <div class="row">
+                    <div class="col-12">
+                      <img src="assets/img/dot-group-login.png" class="login-slide__dot-group" alt="">
+                      <img class="w-100 login-slide__bg mt-4" src="assets/img/login-1.png" alt="">
+                      <div class="login-slide__current">
+                        {{ index + 1 }}
+                      </div>
+                    </div>
+                    <div class="col-12 login-slide__head mt-6">
+                      YENİLİKLER
+                    </div>
+                    <div class="col-12 login-slide__title mt-3">
+                      Fiyat Karşılaştırma
+                    </div>
+                    <div class="col-12 login-slide__desc mt-4">
+                      Lorem Ipsum is simply dummy text of the printing and typesetting industry dummy more.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Add Pagination -->
+              <div class="login__swiper-pagination swiper-pagination mt-10"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer mt-5 mt-md-8 pt-4 pt-md-6 pb-5">
+      <div class="row d-flex justify-content-center">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-4">
+              <img src="assets/img/footer-logo.png" alt="">
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-3 pl-lg-6 mt-3 mt-md-0 footer__contact">
+              <a href="/terms-of-use.html">Üyelik Sözleşmesi</a>
+              <a href="/terms-of-use.html">Kullanım Koşulları</a>
+              <a href="/terms-of-use.html">Kargo ve İade</a>
+              <a href="/faq.html">Sıkça Sorulan Sorular</a>
+              <a href="/warehouse-contact.html">Depo Başvurusu</a>
+            </div>
+            <div class="col-6 col-sm-6 col-md-6 col-lg-3 mt-3 mt-md-0 footer__social">
+              <div>Sosyal Medya</div>
+              <div class="d-flex">
+                <div class="circle-gray"><img src="assets/img/twitter.png" alt=""></div>
+                <div class="circle-gray"><img src="assets/img/likedin.png" alt=""></div>
+                <div class="circle-gray"><img src="assets/img/facebook.png" alt=""></div>
+                <div class="circle-gray"><img src="assets/img/youtube.png" alt=""></div>
+              </div>
+            </div>
+            <div @click="goTop()" class="col-6 col-sm-6 col-md-6 col-lg-2 mt-3 mt-md-0 footer__go-top text-right">
+              <img src="assets/img/go-top.png" alt="">
+            </div>
+          </div>
+          <div class="row mt-6">
+            <div class="col-12 col-md-4 footer__copyright">
+              Eczastok © 2020. Tüm hakları saklıdır. Ürünler izinsiz kullanılamaz.
+            </div>
+            <div class="col-12 col-md-3 pl-3 pl-md-6 footer__tel">
+              <b>Telefon:</b> 0(545) 329 78 65
+            </div>
+            <div class="col-12 col-md-3 pl-3 footer__mail">
+              <b>Email:</b> info@eczastok.com
+            </div>
+            <div class="col-12 col-md-2 text-right footer__designby">
+              Design by: Fu&Ha
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div v-if="showForgotPassword" class="forgot-modal">
+      <div class="forgot-modal__content row">
+        <div @click="showForgotPassword = false" class="forgot-modal__close-button">
+          <img src="assets/img/close-button.png" alt="">
+        </div>
+        <div class="forgot-modal__wrapper col-12 col-sm-11 col-md-10 col-lg-8 text-center">
+          <div class="forgot-modal__title mt-2">
+            Şifremi Unuttum
+          </div>
+          <div class="forgot-modal__desc mt-3">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry lorem Ipsum.
+          </div>
+          <div class="forgot-modal__mail mt-4">
+            <input type="text" class="form-control register-input pl-4" placeholder="Mail Adresiniz"
+              aria-label="Mail Adresiniz" aria-describedby="basic-addon2" @input="forgotEmail = $event.target.value">
+          </div>
+          <div class="forgot-modal__button mt-4">
+            <button class="btn btn-block forgot-modal__send-button m-auto" @click="sendForgotForm()">
+              Gönder
+            </button>
+          </div>
+          <div class="forgot-modal__info mt-3">
+            Bir sorun mu yaşıyorsunuz?
+            <b @click="goContact()">
+              İletişime geçin.
+            </b>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

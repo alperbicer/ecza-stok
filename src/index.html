@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Anasayfa</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+</head>
+
+<body>
+  <div id="homepage">
+    <div v-if="isShowCargo" class="info-wrapper row">
+      <div class="col d-flex align-items-center justify-content-center">
+        <span>
+          Aynı Depodan Yapacağınız 400₺ ve Üzeri Siparişlerde <b>Kargo Ücretsiz!</b>
+          <a href="/register.html" class="info-wrapper__register"><u>Hemen Üye Ol</u></a>
+        </span>
+        <img class="info-wrapper__close-button" src="assets/img/close.png" @click="close()" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="header-left col-sm-8 pt-5 pl-2 pl-md-4">
+        <div class="row">
+          <img src="assets/img/eczastok-logo.png" alt="">
+        </div>
+        <div class="row ml-4 mt-5">
+          <span class="header-left__slogan">Ecza depoları <br> tek platformda</span>
+        </div>
+        <div class="row ml-4 mt-4">
+          <span class="header-left__desc">
+            Eczastok.com, ecza depoları ile eczacılar arasında alışverişi dijital ortama taşıyan bir pazar yeridir.
+            Eczastok Türkiye’de eczanelerin
+            <u class="header-left__highlight">reçeteli ilaç satın</u> alabildiği tek dijital platformdur.
+          </span>
+        </div>
+        <div class="row ml-4 mt-4 pb-5">
+          <div class="col-12 col-sm-8 pl-0 register-wrapper">
+            <input type="text" class="form-control register-input" placeholder="GLN Numaranızı yazınız"
+              aria-label="GLN Numaranızı yazınız" aria-describedby="basic-addon2" @input="gln = $event.target.value">
+            <div class="register-button" @click="goRegister()">
+              <a :href="'register.html?gln=' + gln">Hemen Üye Ol</a>
+            </div>
+          </div>
+        </div>
+        <div class="row ml-4 mt-sm-5 mb-5">
+          <div class="col-12 col-md-11 col-lg-9 p-0">
+            <div class="row d-block">
+              <div class="row">
+                <span class="col-8 p-0 header-left__category">KATEGORİLER</span>
+                <div class="col-4 header-left__arrows text-right m-0">
+                  <img class="mr-2 header-left__arrow" @click="changeCategortySlider('backward')"
+                    src="assets/img/arrow-left.png" alt="">
+                  <img class="header-left__arrow" @click="changeCategortySlider('forward')"
+                    src="assets/img/arrow-right.png" alt="">
+                </div>
+              </div>
+              <div class="mt-3 p-0 col-12 header-left__category-items">
+                <div class="row w-100">
+                  <div class="header-left__swiper-container swiper-container">
+                    <div class="swiper-wrapper">
+                      <div class="header-left__swiper-slide swiper-slide">
+                        <div class="col-3 header-left__category-item">
+                          <div class="row">
+                            <div class="col-12 circle-wrapper">
+                              <div class="circle-item"></div>
+                              <div class="col-12 circle-item__icon">
+                                <img src="assets/img/category-1.png" alt="">
+                              </div>
+                            </div>
+                            <div class="col-12 category-item__desc">
+                              İlaç
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="header-left__swiper-slide swiper-slide">
+                        <div class="col-3 header-left__category-item">
+                          <div class="row">
+                            <div class="col-12 circle-wrapper">
+                              <div class="circle-item"></div>
+                              <div class="col-12 circle-item__icon">
+                                <img src="assets/img/category-2.png" alt="">
+                              </div>
+                            </div>
+                            <div class="col-12 category-item__desc">
+                              Kozmetik
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="header-left__swiper-slide swiper-slide">
+                        <div class="col-3 header-left__category-item">
+                          <div class="row">
+                            <div class="col-12 circle-wrapper">
+                              <div class="circle-item"></div>
+                              <div class="col-12 circle-item__icon">
+                                <img src="assets/img/category-3.png" alt="">
+                              </div>
+                            </div>
+                            <div class="col-12 category-item__desc">
+                              Medikal
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="header-left__swiper-slide swiper-slide">
+                        <div class="col-3 header-left__category-item header-left__weight-control">
+                          <div class="row">
+                            <div class="col-12 circle-wrapper">
+                              <div class="circle-item"></div>
+                              <div class="col-12 circle-item__icon">
+                                <img src="assets/img/category-4.png" alt="">
+                              </div>
+                            </div>
+                            <div class="col-12 category-item__desc">
+                              Dermokozmetik
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="header-right col-sm-4">
+        <div class="row mt-5 mb-4">
+          <div class="col-5 col-sm-12 col-lg-5">
+            <a href="/register.html" class="button__register">
+              Üye Ol
+            </a>
+          </div>
+          <div class="col-7 col-sm-12 col-lg-7">
+            <a href="/login.html" class="button__login">
+              Giriş Yap
+            </a>
+          </div>
+        </div>
+        <div class="row mt-4 mt-md-8 mt-lg-5 d-none d-md-block">
+          <div class="col-12">
+            <div class="header-right__slider ml-md-n5 ml-lg-n12">
+              <img class="header-right__slide" src="assets/img/header-slide-1.png" alt="">
+              <div class="header-right__logo">
+                <img class="header-right__dot-group" src="assets/img/dot-group.png" alt="">
+                <img class="header-right__speacial-pharmacist" src="assets/img/speacial-pharmacist.png" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dot-group-line"></div>
+      <!-- <img src="assets/img/dot-group-line.png" alt=""> -->
+    </div>
+    <div class="row mt-4 mt-md-5 mr-0">
+      <div class="col-12 mt-3 mt-md-5">
+        <div class="business-partner">
+          <div class="business-partner__title text-center">İş Ortaklarımız</div>
+          <div class="business-partner__swiper-container swiper-container mt-4">
+            <div class="swiper-wrapper">
+              <div class="business-partner__swiper-slide swiper-slide">
+                <img src="assets/img/business-partner-1.png" alt="">
+              </div>
+              <div class="business-partner__swiper-slide swiper-slide">
+                <img src="assets/img/business-partner-2.png" alt="">
+              </div>
+              <div class="business-partner__swiper-slide swiper-slide">
+                <img src="assets/img/business-partner-3.png" alt="">
+              </div>
+              <div class="business-partner__swiper-slide swiper-slide">
+                <img src="assets/img/business-partner-4.png" alt="">
+              </div>
+              <div class="business-partner__swiper-slide swiper-slide">
+                <img src="assets/img/business-partner-5.png" alt="">
+              </div>
+              <div class="business-partner__swiper-slide swiper-slide">
+                <img src="assets/img/business-partner-6.png" alt="">
+              </div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            <div class="business-partner__swiper-button-next swiper-button-next"></div>
+            <div class="business-partner__swiper-button-prev swiper-button-prev"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-5 mt-md-8">
+      <div class="happy-customer">
+        <div class="col-12 mb-3 mb-sm-5">
+          <div class="happy-customer__title text-center">Mutlu Müşteriler &#128578;</div>
+        </div>
+        <div class="row position-relative">
+          <div class="happy-customer__swiper-container swiper-container pb-5">
+            <div class="swiper-wrapper">
+              <div class="happy-customer_swiper-slide swiper-slide">
+                <div class="row">
+                  <div class="happy-customer__logo col-6 p-0 d-none d-md-block">
+                    <div class="col-11 position-relative p-0">
+                      <img src="assets/img/happy-customer.png" alt="">
+                      <div class="happy-customer__customer-name">
+                        Meltem İlaçoğlu-0
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6 p-0">
+                    <div class="row h-100">
+                      <div class="col-12 p-4 p-md-1 happy-customer__wrapper">
+                        <div class="happy-customer__content col-sm-12 col-md-11 col-lg-10 col-xl-8">
+                          <div class="col-12">
+                            <div class="happy-customer__slogan">
+                              Karlı, çeşitli, güvenilir alışveriş
+                            </div>
+                            <div class="happy-customer__desc mt-2">
+                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur id lacus pretium diam
+                              varius
+                              euismod.
+                              Suspendisse potenti. Curabitur sodales vulputate porttitor. Vestibulum sed erat at nulla
+                              euismod
+                              vulputate
+                              non vulputate elit. Maecenas vestibulum neque ut venenatis imperdiet. Nulla facilisi.
+                              <br>
+                              Meltem Eczanesi, <b class="happy-customer__location">Kadıköy/İstanbul</b>
+                            </div>
+                            <div class="happy-customer__arrows p-0 mt-3 mt-md-5">
+                              <img class="" src="assets/img/arrow-left.png"
+                                @click="changeHappyCustomerSlider('backward')" alt="">
+                              <img class="" src="assets/img/arrow-right.png"
+                                @click="changeHappyCustomerSlider('forward')" alt="">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="happy-customer_swiper-slide swiper-slide">
+                <div class="row">
+                  <div class="happy-customer__logo col-6 p-0 d-none d-md-block">
+                    <div class="col-11 position-relative p-0">
+                      <img src="assets/img/happy-customer.png" alt="">
+                      <div class="happy-customer__customer-name">
+                        Meltem İlaçoğlu-1
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6 p-0">
+                    <div class="row h-100">
+                      <div class="col-12 p-4 p-md-1 happy-customer__wrapper">
+                        <div class="happy-customer__content col-sm-12 col-md-11 col-lg-10 col-xl-8">
+                          <div class="col-12">
+                            <div class="happy-customer__slogan">
+                              Karlı, çeşitli, güvenilir alışveriş
+                            </div>
+                            <div class="happy-customer__desc mt-2">
+                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur id lacus pretium diam
+                              varius
+                              euismod.
+                              Suspendisse potenti. Curabitur sodales vulputate porttitor. Vestibulum sed erat at nulla
+                              euismod
+                              vulputate
+                              non vulputate elit. Maecenas vestibulum neque ut venenatis imperdiet. Nulla facilisi.
+                              <br>
+                              Meltem Eczanesi, <b class="happy-customer__location">Kadıköy/İstanbul</b>
+                            </div>
+                            <div class="happy-customer__arrows p-0 mt-3 mt-md-5">
+                              <img class="" src="assets/img/arrow-left.png"
+                                @click="changeHappyCustomerSlider('backward')" alt="">
+                              <img class="" src="assets/img/arrow-right.png"
+                                @click="changeHappyCustomerSlider('forward')" alt="">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="happy-customer_swiper-slide swiper-slide">
+                <div class="row">
+                  <div class="happy-customer__logo col-6 p-0 d-none d-md-block">
+                    <div class="col-11 position-relative p-0">
+                      <img src="assets/img/happy-customer.png" alt="">
+                      <div class="happy-customer__customer-name">
+                        Meltem İlaçoğlu-2
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6 p-0">
+                    <div class="row h-100">
+                      <div class="col-12 p-4 p-md-1 happy-customer__wrapper">
+                        <div class="happy-customer__content col-sm-12 col-md-11 col-lg-10 col-xl-8">
+                          <div class="col-12">
+                            <div class="happy-customer__slogan">
+                              Karlı, çeşitli, güvenilir alışveriş
+                            </div>
+                            <div class="happy-customer__desc mt-2">
+                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur id lacus pretium diam
+                              varius
+                              euismod.
+                              Suspendisse potenti. Curabitur sodales vulputate porttitor. Vestibulum sed erat at nulla
+                              euismod
+                              vulputate
+                              non vulputate elit. Maecenas vestibulum neque ut venenatis imperdiet. Nulla facilisi.
+                              <br>
+                              Meltem Eczanesi, <b class="happy-customer__location">Kadıköy/İstanbul</b>
+                            </div>
+                            <div class="happy-customer__arrows p-0 mt-3 mt-md-5">
+                              <img class="" src="assets/img/arrow-left.png"
+                                @click="changeHappyCustomerSlider('backward')" alt="">
+                              <img class="" src="assets/img/arrow-right.png"
+                                @click="changeHappyCustomerSlider('forward')" alt="">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="happy-customer__dot-group">
+            <img src="assets/img/dot-group-happy-customer.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-4 mt-md-8 hr-line"></div>
+    <div class="row mt-2 mt-md-5 position-relative">
+      <div class="advantage pt-3 pt-md-7 pb-3 pb-md-5">
+        <div class="advantage__title">Eczastok’un Avantajları 👌</div>
+        <div class="advantage__cards row mt-3 mt-md-5">
+          <div class="advantage__dot-group"></div>
+          <div class="advantage__card col-sm-5 col-md-4 col-lg-3 mr-sm-4 ml-sm-4 mb-6">
+            <div class="row">
+              <div class="col-12 circle-wrapper">
+                <div class="circle-item"></div>
+                <div class="col-12 circle-item__icon">
+                  <img src="assets/img/advantage-price.png" alt="">
+                </div>
+              </div>
+              <div class="col-12 advantage__title">
+                Fiyat<br>Karşılaştırması
+              </div>
+              <div class="advantage__desc">
+                Tüm ilaç ve ilaç dışı ürünlerin fiyatlarını karşılaştırın.
+              </div>
+            </div>
+          </div>
+          <div class="advantage__card col-sm-5 col-md-4 col-lg-3 mr-sm-4 ml-sm-4 mb-6">
+            <div class="row">
+              <div class="col-12 circle-wrapper">
+                <div class="circle-item"></div>
+                <div class="col-12 circle-item__icon">
+                  <img src="assets/img/advantage-mf.png" alt="">
+                </div>
+              </div>
+              <div class="col-12 advantage__title">
+                MF<br>Avantajı
+              </div>
+              <div class="advantage__desc">
+                Yüksek mal fazlası baremlerden birim fiyata ilaç alışverişi yapın.
+              </div>
+            </div>
+          </div>
+          <div class="advantage__card col-sm-5 col-md-4 col-lg-3 mr-sm-4 ml-sm-4 mb-6">
+            <div class="row">
+              <div class="col-12 circle-wrapper">
+                <div class="circle-item"></div>
+                <div class="col-12 circle-item__icon">
+                  <img src="assets/img/advantage-equivalent.png" alt="">
+                </div>
+              </div>
+              <div class="col-12 advantage__title">
+                Muadil<br>Karşılaştırma
+              </div>
+              <div class="advantage__desc">
+                Tüm ilaçların muadil fiyatlarını görüntüleyin
+              </div>
+            </div>
+          </div>
+          <div class="advantage__card col-sm-5 col-md-4 col-lg-3 mr-sm-4 ml-sm-4 mb-6">
+            <div class="row">
+              <div class="col-12 circle-wrapper">
+                <div class="circle-item"></div>
+                <div class="col-12 circle-item__icon">
+                  <img src="assets/img/advantage-invoice.png" alt="">
+                </div>
+              </div>
+              <div class="col-12 advantage__title">
+                E-fatura<br>ile işlem
+              </div>
+              <div class="advantage__desc">
+                E-fatura ile işlemlerinizi hızlıca gerçekleştirin.
+              </div>
+            </div>
+          </div>
+          <div class="advantage__card col-sm-5 col-md-4 col-lg-3 mr-sm-4 ml-sm-4 mb-6">
+            <div class="row">
+              <div class="col-12 circle-wrapper">
+                <div class="circle-item"></div>
+                <div class="col-12 circle-item__icon">
+                  <img src="assets/img/advantage-its.png" alt="">
+                </div>
+              </div>
+              <div class="col-12 advantage__title">
+                İTS<br>Aktarımı
+              </div>
+              <div class="advantage__desc">
+                Anında İTS aktarımı ile stok güncellemenizi güvenle yapın.
+              </div>
+            </div>
+          </div>
+          <div class="advantage__card col-sm-5 col-md-4 col-lg-3 mr-sm-4 ml-sm-4 mb-6">
+            <div class="row">
+              <div class="col-12 circle-wrapper">
+                <div class="circle-item"></div>
+                <div class="col-12 circle-item__icon">
+                  <img src="assets/img/advantage-bulk.png" alt="">
+                </div>
+              </div>
+              <div class="col-12 advantage__title">
+                Toptan<br>Satın Alma
+              </div>
+              <div class="advantage__desc">
+                Anlık ya da dönemsel satın alımlarınız için tedarikçilerimizden en uygun fiyat tekliflerini
+                alabilirsiniz
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-4 mt-md-8">
+      <div class="how-to-work position-relative">
+        <div class="how-to-work__title">Eczastok Nasıl Çalışır? 👇</div>
+        <div class="how-to-work__slider pt-2 pt-md-7 pb-2 pb-md-6 mt-2 mt-md-5">
+          <div class="how-to-work__swiper-container pb-8 swiper-container">
+            <div class="swiper-wrapper">
+              <div class="how-to-work__swiper-slide swiper-slide">
+                <div class="row">
+                  <div class="col-12 col-md-5 pl-2 pl-md-7 pr-2 pr-md-4">
+                    <div class="how-to-work__slide-title">Kredi kartıyla <br> güvenli alışveriş</div>
+                    <div class="how-to-work__slide-desc">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur id lacus pretium diam varius
+                      euismod. Suspendisse potenti. Curabitur sodales vulputate porttitor. Vestibulum sed erat at nulla
+                      euismod vulputate non vulputate elit. Maecenas vestibulum neque ut venenatis imperdiet. Nulla
+                      facilisi.
+                    </div>
+                  </div>
+                  <div class="col-7 d-none d-md-flex align-items-center">
+                    <img class="w-100" src="assets/img/how-to-work-slide-1.png" alt="">
+                  </div>
+                </div>
+              </div>
+              <div class="how-to-work__swiper-slide swiper-slide">
+                <div class="row">
+                  <div class="col-12 col-md-5 pl-2 pl-md-7 pr-2 pr-md-4">
+                    <div class="how-to-work__slide-title">Kredi kartıyla <br> güvenli alışveriş</div>
+                    <div class="how-to-work__slide-desc">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur id lacus pretium diam varius
+                      euismod. Suspendisse potenti. Curabitur sodales vulputate porttitor. Vestibulum sed erat at nulla
+                      euismod vulputate non vulputate elit. Maecenas vestibulum neque ut venenatis imperdiet. Nulla
+                      facilisi.
+                    </div>
+                  </div>
+                  <div class="col-7 d-none d-md-flex align-items-center">
+                    <img class="w-100" src="assets/img/how-to-work-slide-1.png" alt="">
+                  </div>
+                </div>
+              </div>
+              <div class="how-to-work__swiper-slide swiper-slide">
+                <div class="row">
+                  <div class="col-12 col-md-5 pl-2 pl-md-7 pr-2 pr-md-4">
+                    <div class="how-to-work__slide-title">Kredi kartıyla <br> güvenli alışveriş</div>
+                    <div class="how-to-work__slide-desc">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur id lacus pretium diam varius
+                      euismod. Suspendisse potenti. Curabitur sodales vulputate porttitor. Vestibulum sed erat at nulla
+                      euismod vulputate non vulputate elit. Maecenas vestibulum neque ut venenatis imperdiet. Nulla
+                      facilisi.
+                    </div>
+                  </div>
+                  <div class="col-7 d-none d-md-flex align-items-center">
+                    <img class="w-100" src="assets/img/how-to-work-slide-1.png" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="how-to-work__swiper-pagination swiper-pagination"></div>
+            <!-- Add Arrows -->
+            <div class="how-to-work__swiper-button-next swiper-button-next"></div>
+            <div class="how-to-work__swiper-button-prev swiper-button-prev"></div>
+          </div>
+        </div>
+        <div class="how-to-work__dot-group"></div>
+      </div>
+    </div>
+    <div class="join position-relative row mt-8">
+      <div class="col-4 join__left d-none d-md-flex">
+        <img src="assets/img/speacial-pharmacist-red.png" alt="">
+      </div>
+      <div class="col-12 col-md-6 join__right">
+        <div class="row">
+          <div class="join__title col-12">
+            Eczastok dünyasına katıl, Alırken, Satarken Kazançlı çık!
+          </div>
+          <div class="join__desc mt-4 col-12">
+            GLN Numaranızı yazarak üye olabilirsiniz 👍
+          </div>
+          <div class="join__register col-12 mt-5">
+            <div class="register-wrapper">
+              <input type="text" class="form-control register-input" placeholder="GLN Numaranızı yazınız"
+                aria-label="GLN Numaranızı yazınız" aria-describedby="basic-addon2">
+              <div class="register-button" @click="goRegister()">
+                <a href="register.html">Hemen Üye Ol</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer mt-5 mt-md-8 pt-4 pt-md-6 pb-5">
+      <div class="row d-flex justify-content-center">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-4">
+              <img src="assets/img/footer-logo.png" alt="">
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-3 pl-lg-6 mt-3 mt-md-0 footer__contact">
+              <a href="/terms-of-use.html">Üyelik Sözleşmesi</a>
+              <a href="/terms-of-use.html">Kullanım Koşulları</a>
+              <a href="/terms-of-use.html">Kargo ve İade</a>
+              <a href="/faq.html">Sıkça Sorulan Sorular</a>
+              <a href="/warehouse-contact.html">Depo Başvurusu</a>
+            </div>
+            <div class="col-6 col-sm-6 col-md-6 col-lg-3 mt-3 mt-md-0 footer__social">
+              <div>Sosyal Medya</div>
+              <div class="d-flex">
+                <div class="circle-gray"><img src="assets/img/twitter.png" alt=""></div>
+                <div class="circle-gray"><img src="assets/img/likedin.png" alt=""></div>
+                <div class="circle-gray"><img src="assets/img/facebook.png" alt=""></div>
+                <div class="circle-gray"><img src="assets/img/youtube.png" alt=""></div>
+              </div>
+            </div>
+            <div @click="goTop()" class="col-6 col-sm-6 col-md-6 col-lg-2 mt-3 mt-md-0 footer__go-top text-right">
+              <img src="assets/img/go-top.png" alt="">
+            </div>
+          </div>
+          <div class="row mt-6">
+            <div class="col-12 col-md-4 footer__copyright">
+              Eczastok © 2020. Tüm hakları saklıdır. Ürünler izinsiz kullanılamaz.
+            </div>
+            <div class="col-12 col-md-3 pl-3 pl-md-6 footer__tel">
+              <b>Telefon:</b> 0(545) 329 78 65
+            </div>
+            <div class="col-12 col-md-3 pl-3 footer__mail">
+              <b>Email:</b> info@eczastok.com
+            </div>
+            <div class="col-12 col-md-2 text-right footer__designby">
+              Design by: Fu&Ha
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

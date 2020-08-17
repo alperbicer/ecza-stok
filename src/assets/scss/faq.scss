@@ -1,0 +1,36 @@
+#faq {
+  .faq {
+    &__title {
+      font-weight: 500;
+      font-size: 48px;
+      line-height: 110%;
+      text-align: center;
+      letter-spacing: -0.01em;
+      font-feature-settings: 'liga' off;
+      color: #382239;
+    }
+    &__card-header {
+      background: #FFFFFF;
+      border-radius: 20px;
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-right: 5px;
+      span {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
+        letter-spacing: 0.01em;
+        font-feature-settings: 'liga' off;
+        color: #382239;
+      }
+    }
+    &__collapse-button {
+      background: #F8F8FB;
+      border-radius: 14px;
+      padding: 22px;
+      cursor: pointer;
+    }
+  }
+}

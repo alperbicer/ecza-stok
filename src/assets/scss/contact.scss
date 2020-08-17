@@ -1,0 +1,52 @@
+#contact {
+  .contact {
+    &__title {
+      font-weight: 500;
+      font-size: 48px;
+      line-height: 110%;
+      text-align: center;
+      letter-spacing: -0.01em;
+      font-feature-settings: 'liga' off;
+      color: #382239;
+    }
+    &__desc {
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 163%;
+      text-align: center;
+      letter-spacing: 0.025em;
+      font-feature-settings: 'liga' off;
+      color: #382239;
+    }
+    &__form {
+      .register-input::placeholder {
+        color: #382239;
+        opacity: 1;
+      }
+    }
+    &__send-button {
+      background: #FF5C00;
+      border-radius: 14px;
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 115%;
+      text-align: center;
+      letter-spacing: -0.01em;
+      font-feature-settings: 'liga' off;
+      color: #FFFFFF;
+      height: 70px;
+    }
+    &__info {
+      font-size: 20px;;
+      b {
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 163%;
+        text-align: center;
+        letter-spacing: 0.025em;
+        font-feature-settings: 'liga' off;
+        color: #382239;
+      }
+    }
+  }
+}

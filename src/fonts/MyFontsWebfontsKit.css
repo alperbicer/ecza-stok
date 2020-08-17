@@ -1,0 +1,42 @@
+/**
+ * @license
+ * MyFonts Webfont Build ID 3932567, 2020-08-04T16:13:05-0400
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: Campton-Book by Rene Bieder
+ * URL: https://www.myfonts.com/fonts/rene-bieder/campton/book/
+ * 
+ * Webfont: Campton-Medium by Rene Bieder
+ * URL: https://www.myfonts.com/fonts/rene-bieder/campton/medium/
+ * 
+ * Webfont: Campton-SemiBold by Rene Bieder
+ * URL: https://www.myfonts.com/fonts/rene-bieder/campton/semi-bold/
+ * 
+ * 
+ * Webfonts copyright: Copyright &amp;#x00A9; 2017 by Ren&amp;#x00E9; Bieder. All rights reserved.
+ * 
+ * © 2020 MyFonts Inc
+*/
+
+
+/* @import must be at top of file, otherwise CSS will not work */
+@import url("//hello.myfonts.net/count/3c0197");
+  
+@font-face {
+  font-family: 'Campton-SemiBold';
+  src: url('webFonts/Campton-SemiBold/font.woff2') format('woff2'), url('webFonts/Campton-SemiBold/font.woff') format('woff');
+}
+@font-face {
+  font-family: 'Campton-Medium';
+  src: url('webFonts/Campton-Medium/font.woff2') format('woff2'), url('webFonts/Campton-Medium/font.woff') format('woff');
+}
+@font-face {
+  font-family: 'Campton-Book';
+  src: url('webFonts/Campton-Book/font.woff2') format('woff2'), url('webFonts/Campton-Book/font.woff') format('woff');
+}
+

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <title>Terms of Use</title>
+</head>
+
+<body>
+  <div id="contact">
+    <div class="row navbar">
+      <div class="col-6 pt-sm-3 pb-sm-3">
+        <img @click="goHome()" src="assets/img/eczastok-logo.png" alt="">
+      </div>
+      <div class="col-6">
+        <div class="row">
+          <div class="col-12 col-sm-6 col-md-8 col-lg-9">
+            <a href="register.html" class="button__register float-right w-100">
+              Üye Ol
+            </a>
+          </div>
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <a href="login.html" class="button__login float-right float-sm-none w-100">
+              Giriş Yap
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row contact">
+      <div class="col-12 contact__title text-center mt-5 mb-5">
+        İletişim
+      </div>
+      <div class="col-12 col-sm-11 col-md-10 col-lg-9 col-xl-8 m-auto contact__desc text-center">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry lorem Ipsum has been the industry's
+        standard dummy text ever since the 1500s, when an unknown printer took.
+      </div>
+      <div class="col-12 col-sm-11 col-md-10 col-lg-8 col-xl-7 m-auto contact__form">
+        <div class="row mt-5">
+          <div class="col-12 col-md-6">
+            <input type="text" class="form-control register-input pl-4" placeholder="Adınız Soyadınız"
+              aria-label="Adınız Soyadınız" aria-describedby="basic-addon2" @input="nameSurname = $event.target.value">
+          </div>
+          <div class="col-12 col-md-6 mt-4 mt-md-0">
+            <input type="text" class="form-control register-input pl-4" placeholder="Mail Adresiniz"
+              aria-label="Mail Adresiniz" aria-describedby="basic-addon2" @input="email = $event.target.value">
+          </div>
+          <div class="col-12 mt-4">
+            <textarea type="text" class="form-control register-input pl-4 pt-3" rows="5" placeholder="Mesajınız"
+              aria-label="Mesajınız" aria-describedby="basic-addon2" @input="message = $event.target.value"></textarea>
+          </div>
+          <div class="col-12 mt-5 mb-8">
+            <button class="btn btn-block contact__send-button" @click="sendForm()">
+              Formu gönder
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-11 col-md-10 col-lg-9 col-xl-8 m-auto contact__info text-center mt-5 mb-5">
+        <b>Kargo ve İade</b> <br>Siparişinizle ilgili bilgi almak, iade talebi veya sorun kaydı oluşturmak için Lütfen; <b>0545 329
+          7865 (0545 ECZ STOK)</b> numaralı telefondan bizimle iletişime geçin.
+      </div>
+    </div>
+    <div class="footer mt-5 mt-md-8 pt-4 pt-md-6 pb-5">
+      <div class="row d-flex justify-content-center">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-4">
+              <img src="assets/img/footer-logo.png" alt="">
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-3 pl-lg-6 mt-3 mt-md-0 footer__contact">
+              <a href="/terms-of-use.html">Üyelik Sözleşmesi</a>
+              <a href="/terms-of-use.html">Kullanım Koşulları</a>
+              <a href="/terms-of-use.html">Kargo ve İade</a>
+              <a href="/faq.html">Sıkça Sorulan Sorular</a>
+              <a href="/warehouse-contact.html">Depo Başvurusu</a>
+            </div>
+            <div class="col-6 col-sm-6 col-md-6 col-lg-3 mt-3 mt-md-0 footer__social">
+              <div>Sosyal Medya</div>
+              <div class="d-flex">
+                <div class="circle-gray"><img src="assets/img/twitter.png" alt=""></div>
+                <div class="circle-gray"><img src="assets/img/likedin.png" alt=""></div>
+                <div class="circle-gray"><img src="assets/img/facebook.png" alt=""></div>
+                <div class="circle-gray"><img src="assets/img/youtube.png" alt=""></div>
+              </div>
+            </div>
+            <div @click="goTop()" class="col-6 col-sm-6 col-md-6 col-lg-2 mt-3 mt-md-0 footer__go-top text-right">
+              <img src="assets/img/go-top.png" alt="">
+            </div>
+          </div>
+          <div class="row mt-6">
+            <div class="col-12 col-md-4 footer__copyright">
+              Eczastok © 2020. Tüm hakları saklıdır. Ürünler izinsiz kullanılamaz.
+            </div>
+            <div class="col-12 col-md-3 pl-3 pl-md-6 footer__tel">
+              <b>Telefon:</b> 0(545) 329 78 65
+            </div>
+            <div class="col-12 col-md-3 pl-3 footer__mail">
+              <b>Email:</b> info@eczastok.com
+            </div>
+            <div class="col-12 col-md-2 text-right footer__designby">
+              Design by: Fu&Ha
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
