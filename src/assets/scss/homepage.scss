@@ -135,7 +135,12 @@
 }
 .business-partner__swiper-container {
   width: 90%;
-  height: 100%;
+  height: 60px;
+  img {
+    height: 100%;
+    width: 100%;
+    max-width: 165px;
+  }
 }
 .business-partner__swiper-slide {
   text-align: center;
@@ -146,9 +151,19 @@
 }
 .business-partner__swiper-button-prev {
   left: 0;
+  background: #FFFFFF;
+  border-radius: 16px;
+  width: 48px;
+  height: 48px;
+  box-shadow: 0 0 0 10px #f8faff;
 }
 .business-partner__swiper-button-next {
   right: 0;
+  background: #FFFFFF;
+  border-radius: 16px;
+  width: 48px;
+  height: 48px;
+  box-shadow: 0 0 0 10px #f8faff;
 }
 .business-partner__swiper-button-next::after, .business-partner__swiper-button-prev::after {
   color: #382239;

@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <link rel="stylesheet" type="text/css" href="./assets/fonts/MyFontsWebfontsKit.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
@@ -135,13 +136,13 @@
       </div>
       <div class="header-right col-sm-4">
         <div class="row mt-5 mb-4">
-          <div class="col-5 col-sm-12 col-lg-5">
-            <a href="/register.html" class="button__register">
+          <div class="col-6 col-sm-12 col-lg-6 d-flex justify-content-end justify-content-sm-center justify-content-lg-end">
+            <a href="/register.html" class="button__register w-100">
               Üye Ol
             </a>
           </div>
-          <div class="col-7 col-sm-12 col-lg-7">
-            <a href="/login.html" class="button__login">
+          <div class="col-6 col-sm-12 col-lg-6 d-flex justify-content-start justify-content-sm-center justify-content-lg-start">
+            <a href="/login.html" class="button__login w-100">
               Giriş Yap
             </a>
           </div>
@@ -159,31 +160,15 @@
         </div>
       </div>
       <div class="dot-group-line"></div>
-      <!-- <img src="assets/img/dot-group-line.png" alt=""> -->
     </div>
-    <div class="row mt-4 mt-md-5 mr-0">
+    <div class="row mt-4 mt-md-10 mr-0">
       <div class="col-12 mt-3 mt-md-5">
         <div class="business-partner">
           <div class="business-partner__title text-center">İş Ortaklarımız</div>
-          <div class="business-partner__swiper-container swiper-container mt-4">
+          <div class="business-partner__swiper-container swiper-container mt-5 pl-5 pr-5">
             <div class="swiper-wrapper">
-              <div class="business-partner__swiper-slide swiper-slide">
-                <img src="assets/img/business-partner-1.png" alt="">
-              </div>
-              <div class="business-partner__swiper-slide swiper-slide">
-                <img src="assets/img/business-partner-2.png" alt="">
-              </div>
-              <div class="business-partner__swiper-slide swiper-slide">
-                <img src="assets/img/business-partner-3.png" alt="">
-              </div>
-              <div class="business-partner__swiper-slide swiper-slide">
-                <img src="assets/img/business-partner-4.png" alt="">
-              </div>
-              <div class="business-partner__swiper-slide swiper-slide">
-                <img src="assets/img/business-partner-5.png" alt="">
-              </div>
-              <div class="business-partner__swiper-slide swiper-slide">
-                <img src="assets/img/business-partner-6.png" alt="">
+              <div v-for="(businessPartnerSlide, index) in businessPartnerSlideList" class="business-partner__swiper-slide swiper-slide">
+                <img :src="'assets/img/business-partner-' + businessPartnerSlide + '.png'" alt="">
               </div>
             </div>
             <!-- Add Pagination -->
@@ -194,7 +179,10 @@
         </div>
       </div>
     </div>
-    <div class="row mt-5 mt-md-8">
+    <div class="mt-5 mt-md-7 w-90 mc-auto">
+      <hr>
+    </div>
+    <div class="row mt-5 mt-md-7">
       <div class="happy-customer">
         <div class="col-12 mb-3 mb-sm-5">
           <div class="happy-customer__title text-center">Mutlu Müşteriler &#128578;</div>

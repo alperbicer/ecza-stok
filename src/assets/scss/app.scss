@@ -1,12 +1,9 @@
-@font-face {
-  font-family: 'Campton-Book';
-  src: url('../fonts/webFonts/Campton-Book/font.woff2') format('woff2'), url('../fonts/webFonts/Campton-Book/font.woff') format('woff');
-}
+
 @import '_grid';
 @import '_color';
-$button-orange: #FF5C00;
 body {
   background-color: #f8faff;
+  font-family: Campton-Medium;
 }
 .lockScroll {
   position:fixed;
@@ -41,6 +38,10 @@ body {
   position: relative;
   display: flex;
   max-width: 533px;
+}
+.search-wrapper {
+  position: relative;
+  display: flex;
 }
 .register-input {
   height: 64px;
@@ -93,6 +94,17 @@ body {
       text-decoration: none;
     }
   }
+}
+.search-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+  height: 64px;
+  max-width: 100px;
+  width: 100%;
+  cursor: pointer;
 }
 .circle-gray {
   background-image: url(../img/circle-gray.png);
@@ -221,4 +233,7 @@ a {
 }
 .mc-auto {
   margin: auto;
+}
+.w-90 {
+  width: 90% !important;
 }

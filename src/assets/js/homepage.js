@@ -8,6 +8,7 @@ new Vue({
       categorySlider: null,
       happyCustomerSlider: null,
       gln: '',
+      businessPartnerSlideList: [1, 2, 3, 4, 5, 6],
     };
   },
   methods: {
@@ -45,10 +46,6 @@ new Vue({
       spaceBetween: 16,
       loop: true,
       loopFillGroupWithBlank: true,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
       breakpoints: {
         320: {
           slidesPerView: 2,
@@ -65,25 +62,33 @@ new Vue({
       }
     });
     new Swiper('.business-partner__swiper-container', {
-      slidesPerView: 6,
+      slidesPerView: 1,
       spaceBetween: 0,
       loop: true,
       loopFillGroupWithBlank: true,
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: '.business-partner__swiper-button-next',
+        prevEl: '.business-partner__swiper-button-prev',
       },
       breakpoints: {
-        320: {
+        500: {
           slidesPerView: 2,
           spaceBetweenSlides: 0
         },
-        640: {
+        700: {
           slidesPerView: 3,
           spaceBetweenSlides: 0
         },
-        1040: {
+        988: {
           slidesPerView: 4,
+          spaceBetweenSlides: 0
+        },
+        1200: {
+          slidesPerView: 5,
+          spaceBetweenSlides: 0
+        },
+        1300: {
+          slidesPerView: 6,
           spaceBetweenSlides: 0
         },
       }
@@ -93,10 +98,6 @@ new Vue({
       spaceBetween: 0,
       loop: true,
       loopFillGroupWithBlank: true,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      }
     });
     new Swiper('.how-to-work__swiper-container', {
       slidesPerView: 1,
@@ -110,8 +111,8 @@ new Vue({
         clickable: true,
       },
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: '.how-to-work__swiper-button-next',
+        prevEl: '.how-to-work__swiper-button-prev',
       },
     });
   }
