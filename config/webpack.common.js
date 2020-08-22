@@ -7,6 +7,11 @@ module.exports = {
     index: './src/assets/js/homepage.js',
     login: './src/assets/js/login.js',
     register: './src/assets/js/register.js',
+    termsOfUse: './src/assets/js/terms-of-use.js',
+    contact: './src/assets/js/contact.js',
+    warehouseContact: './src/assets/js/warehouse-contact.js',
+    faq: './src/assets/js/faq.js',
+    about: './src/assets/js/about.js',
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
@@ -36,6 +41,31 @@ module.exports = {
       title: 'EczaStok',
       template: path.resolve(__dirname, '../src') + '/register.html',
       filename: 'register.html',
+    }),
+    new HtmlWebpackPlugin({
+      title: 'EczaStok',
+      template: path.resolve(__dirname, '../src') + '/terms-of-use.html',
+      filename: 'terms-of-use.html',
+    }),
+    new HtmlWebpackPlugin({
+      title: 'EczaStok',
+      template: path.resolve(__dirname, '../src') + '/contact.html',
+      filename: 'contact.html',
+    }),
+    new HtmlWebpackPlugin({
+      title: 'EczaStok',
+      template: path.resolve(__dirname, '../src') + '/warehouse-contact.html',
+      filename: 'warehouse-contact.html',
+    }),
+    new HtmlWebpackPlugin({
+      title: 'EczaStok',
+      template: path.resolve(__dirname, '../src') + '/faq.html',
+      filename: 'faq.html',
+    }),
+    new HtmlWebpackPlugin({
+      title: 'EczaStok',
+      template: path.resolve(__dirname, '../src') + '/about.html',
+      filename: 'about.html',
     }),
   ],
   module: {
